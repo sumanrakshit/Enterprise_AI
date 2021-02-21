@@ -1,0 +1,70 @@
+{% extends "layout1.html" %}
+{% block body %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customer prediction</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='styl.css') }}">
+ 
+  </head>
+
+
+
+  <div>
+
+  <h2 style="font-family: 'Montserrat', sans-serif; font-size: 25px; text-align: center;">Customer prediction Analysis</h2>
+  
+    	<table  style="width:100%">
+
+			<tr bgcolor="">
+				<th align = "center">id</th>
+				<th align = "center">name</th>
+				<th align = "center">email</th>
+				<th align = "center">Phone</th>
+        <th align = "center">Comment</th>
+       
+        <th align = "center">Action</th>
+				
+
+			</tr>
+
+			
+
+			
+  
+          {% for data in employee %}
+          <tr>
+   <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.phone}}</td>
+            <td>{{data.message}}</td>
+            <td width="100%" >
+              <a href="/predict_sentiment/{{data.id}}" class="btn btn-secondary btn-sm">predict</a>
+              <a href="/delete/{{data.id}}" class="btn btn-danger btn-delete btn-sm">delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        
+      </table>
+   
+   
+</div>>
+
+
+
+
+
+  
+ 
+    {% endblock %}
+
+
+ 

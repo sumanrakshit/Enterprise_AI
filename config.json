@@ -1,0 +1,18 @@
+{
+    "params":
+    {
+      "local_server":"True",
+      "local_uri": "mysql+mysqlconnector://root:@localhost/infra",
+      "prod_uri":"mysql+mysqlconnector://root:@localhost/infra",
+      "fb_url":"https://facebook.com/codingthunder",
+      "tw_url":"https://twitter.com/codingthunder",
+      "gh_url": "https://github.com/codingthunder",
+      "blog_name": "Java Company",
+      "tag_line": "Segmentation predict",
+      "gmail-user":"sumanrakshit1997@gmail.com",
+      "gmail-password":"************",
+      "c_name":"suman@gmail.com",
+      "c_psaa":"123"
+    }
+  }
+  

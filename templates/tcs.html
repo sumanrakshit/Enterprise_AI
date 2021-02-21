@@ -1,0 +1,38 @@
+{% extends "layout1.html" %}
+{% block body %}
+
+<div class="col-md-3">
+    <h1>Sentiment</h1>
+    <div class="alert alert-primary" role="alert">
+      
+        {{ sentiment }}
+        
+    </div>
+  </div>
+  <div class="col-md-3">
+    <h1>Score</h1>
+    <div class="alert alert-primary" role="alert">
+      
+        {{ probability }}
+        
+    </div>
+  </div>
+  <div >
+    <h1>Emotion</h1>
+    <div class="box" >
+     
+      <img  style="border-radius: 50%; padding: 5px;
+      width: 150px;" src='../{{ img }}'  alt="Image">
+        
+    </div>
+  </div>
+
+
+  
+
+  <!--Image -->
+      
+
+
+
+{% endblock %}

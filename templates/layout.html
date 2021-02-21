@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Java Company | Myjava.com</title>
+    <!-- <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" media="screen and (max-width: 1170px)" href="phone.css"> -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='stylelogin.css') }}">
+  
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"> -->
+    <link rel="stylesheet"  media="screen and (max-width: 1170px)" type="text/css" href="{{ url_for('static', filename='phone.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="{{ url_for('static', filename='img.png') }}"  alt="JavaCompany.com">
+        </div>
+        <ul>
+            <li class="item"><a href="/">Home</a></li>
+            <li class="item"><a href="#services-container"> Our Product </a></li>
+            
+            <li class="item"><a href="#contact">Quary</a></li>
+            <li class="item"><a href="/register">Product Manager</a></li>
+            <!-- <li class="item"><a href="/customer">customer</a></li> -->
+           
+            <!-- <li class="item"></li><div class="dropdown"><button class="dropbtn">Product Manager<i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content"> 
+                  <a href="manager.html">Log in</a>
+                  <a href="#">Register</a>  
+                </div>
+              </div> -->
+            
+            <!-- <li class="item"></li><div class="dropdown"><button class="dropbtn">Customer<i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content"> 
+                  <a href="/clogin">Log in</a>
+                  <a href="/cregister">Register</a>  
+                </div>
+              </div> -->
+            
+        </ul>
+    </nav>
+    {% block body %} {% endblock %}
+  
+
+
+
+

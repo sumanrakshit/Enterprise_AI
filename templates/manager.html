@@ -1,0 +1,182 @@
+{% extends "layout1.html" %}
+{% block body %}
+
+      <main>
+        <div class="main__container">
+          <!-- MAIN TITLE STARTS HERE -->
+
+          <div class="main__title">
+            <img src="{{ url_for('static', filename='tv.png') }}" alt="logo" />
+            <div class="main__greeting">
+              <h1>Hello Inframind</h1>
+              <p>Welcome to Java  Product base Company</p>
+            </div>
+          </div>
+
+          <!-- MAIN TITLE ENDS HERE -->
+
+          <!-- MAIN CARDS STARTS HERE -->
+          <div class="main__cards">
+            <div class="card">
+              <i
+                class="fa fa-file-text-o fa-2x text-lightblue"
+                aria-hidden="true"
+              ></i>
+              <div class="card_inner">
+                <p class="text-primary-p">Number of text</p>
+                <span class="font-bold text-title">20</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <i class="fa fa-camera-retro fa-2x text-red" aria-hidden="true"></i>
+              <div class="card_inner">
+                <p class="text-primary-p">Number of image</p>
+                <span class="font-bold text-title">3</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <i
+                class="fa fa-video-camera fa-2x text-yellow"
+                aria-hidden="true"
+              ></i>
+              <div class="card_inner">
+                <p class="text-primary-p">Number of Videos</p>
+                <span class="font-bold text-title">0</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <i
+                class="fa fa-microphone fa-2x text-green"
+                aria-hidden="true"
+              ></i>
+              <div class="card_inner">
+                <p class="text-primary-p">Number of voice call</p>
+                <span class="font-bold text-title">0</span>
+              </div>
+            </div>
+          </div>
+          <!-- MAIN CARDS ENDS HERE -->
+
+          <!-- CHARTS STARTS HERE -->
+          <div class="charts">
+            <div class="charts__left">
+              <div class="charts__left__title">
+                <div>
+                  <h1>Daily Reports</h1>
+                  <p>Jadavpur, Kolkata, India</p>
+                </div>
+                <i class="fa fa-inr" aria-hidden="true"></i>
+              </div>
+              <canvas id="myChart"  style= "width: 250px ; height : 200px  "  width="400" height="200"></canvas>
+            </div>
+
+            <div class="charts__right">
+              <div class="charts__right__title">
+                <div>
+                  <h1>Status Reports</h1>
+                  <p>Jadavpur, Kolkata, India</p>
+                </div>
+                <i class="fa fa-inr" aria-hidden="true"></i>
+              </div>
+
+              <div class="charts__right__cards">
+                <div class="card1">
+                  <h1>Income</h1>
+                  <p>Rs.10,300</p>
+                </div>
+
+                <div class="card2">
+                  <h1>Sales</h1>
+                  <p> Rs.24,200</p>
+                </div>
+
+                <div class="card3">
+                  <h1>Users</h1>
+                  <p>3</p>
+                </div>
+
+                <div class="card4">
+                  <h1>Orders</h1>
+                  <p>20</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- CHARTS ENDS HERE -->
+        </div>
+      </main>
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"> </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script>
+      $(function () {
+          var ctx = document.getElementById("myChart").getContext("2d")
+          // examine example_data.json for expected response data
+          var json_url = "json1";
+      
+          // draw empty chart
+          var myChart = new Chart(ctx, {
+              type: 'line',
+              data: {
+                  labels: [],
+                  datasets: [
+                      {
+                          label: "My First dataset",
+                          fill: false,
+                          lineTension: 0.1,
+                          backgroundColor: "rgba(75,192,192,0.4)",
+                          borderColor: "rgba(75,192,192,1)",
+                          borderCapStyle: 'butt',
+                          borderDash: [],
+                          borderDashOffset: 0.0,
+                          borderJoinStyle: 'miter',
+                          pointBorderColor: "rgba(75,192,192,1)",
+                          pointBackgroundColor: "#fff",
+                          pointBorderWidth: 1,
+                          pointHoverRadius: 5,
+                          pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                          pointHoverBorderColor: "rgba(220,220,220,1)",
+                          pointHoverBorderWidth: 2,
+                          pointRadius: 1,
+                          pointHitRadius: 10,
+                          data: [],
+                          spanGaps: false,
+                      }
+                  ]
+              },
+              options: {
+                  tooltips: {
+                      mode: 'index',
+                      intersect: false
+                  },
+                  scales: {
+                      yAxes: [{
+                          ticks: {
+                              beginAtZero:true
+                          }
+                      }]
+                  }
+              }
+          });
+      
+          ajax_chart(myChart, json_url);
+      
+          // function to update our chart
+          function ajax_chart(chart, url, data) {
+              var data = data || {};
+      
+              $.getJSON(url, data).done(function(response) {
+                  console.response
+                  chart.data.labels = response.labels;
+                  chart.data.datasets[0].data = response.data.quantity; // or you can iterate for multiple datasets
+                  chart.update(); // finally update our chart
+              });
+          }
+      });
+      </script>
+      {% endblock %}
